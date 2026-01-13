@@ -15,6 +15,20 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  # Check for sides <= 0
+  raise TriangleError if a <= 0 || b <= 0 || c <= 0
+  # Check for triangle inequality
+  raise TriangleError if a + b <= c || a + c <= b || b + c <= a
+  # Determine type of triangle
+ if a==b && b==c
+   return :equilateral
+ end
+ if (a==b && a!=c) || (a==c && a!=b) || (b==c && b!=a)
+    return :isosceles
+ end
+ if a!=b && b!=c && a!=c
+    return :scalene
+ end
 end
 
 # Error class used in part 2.  No need to change this code.
